@@ -1,1 +1,1 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/Hp/Documents/GitHub/techtreds","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/Hp/Documents/GitHub/techtreds","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}},"virtualbox":{"/shared/":{"guestpath":"/shared","hostpath":"C:/Users/Hp/Documents/GitHub/techtreds","disabled":false,"__vagrantfile":true}}}
