@@ -1,0 +1,37 @@
+## Docker command to build the application 
+sudo docker build -t techtrends -f ./Dockerfile .
+
+## Docker command to run the application
+docker run -d -p 7111:3111 techtrends
+
+## Docker commands used to get the application logs
+sudo docker logs 033e2e97773e
+
+##TechTrends Logs
+
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:26] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:26] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:28] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:30] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:38] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:39] "GET /3 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:36:40] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:44:12] "GET /6 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:44:20] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:45:36] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:45:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:45:43] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:45:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:57:04] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:57:05] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:57:05] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:57:16] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 19:57:35] "GET /healthz HTTP/1.1" 200 -
