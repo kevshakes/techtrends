@@ -1,3 +1,7 @@
+#Author: Kevin Tuei
+#Code References: Parts of code referenced from https://github.com/mikeattara/techtrends
+#Udacity Cloud Native Foundations Course Videos: Lesson 1-5
+
 import sqlite3
 
 from flask import Flask, render_template, request, url_for, redirect, flash
