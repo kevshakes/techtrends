@@ -5,47 +5,23 @@ docker build -t techtrends -f ./Dockerfile .
 docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-docker logs 907be370dfe3
-
-##TechTrends Logs
-
-
-  * Serving Flask app "app" (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
-INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:07] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:13] "GET /create HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:26 | Article "Udacity Nanodegree Scholarship" created!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:26] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:26] "GET / HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:34 | About page rendered!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:34] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:41] "GET / HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:42 | Article "2020 CNCF Annual Report" retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:42] "GET /1 HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:48 | Article with id "89" does not exist!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:48] "GET /89 HTTP/1.1" 404 -
-shakes@shakes-pc:~/Documents/GitHub/techtrends$ sudo docker logs 907be370dfe3
+sudo docker logs 24114c89a2d3
+DEBUG
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
-INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:07] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:13] "GET /create HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:26 | Article "Udacity Nanodegree Scholarship" created!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:26] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:26] "GET / HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:34 | About page rendered!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:34] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:41] "GET / HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:42 | Article "2020 CNCF Annual Report" retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:42] "GET /1 HTTP/1.1" 200 -
-INFO:app:08/29/2021, 22:50:48 | Article with id "89" does not exist!
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:50:48] "GET /89 HTTP/1.1" 404 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:53:08] "GET /healthz HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Aug/2021 22:53:25] "GET /metrics HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+172.17.0.1 - - [30/Aug/2021 10:53:13] "GET / HTTP/1.1" 200 -
+INFO:2021-08-30 10:53:19,203 - About page rendered!
+172.17.0.1 - - [30/Aug/2021 10:53:19] "GET /about HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2021 10:53:20] "GET /create HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2021 10:53:39] "POST /create HTTP/1.1" 302 -
+INFO:2021-08-30 10:53:39,934 - Article "ArgoCD " created!
+172.17.0.1 - - [30/Aug/2021 10:53:39] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2021 10:53:47] "GET /metrics HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2021 10:53:53] "GET /healthz HTTP/1.1" 200 -
+ERROR:2021-08-30 10:53:58,152 - Article with id "34" does not exist!
+172.17.0.1 - - [30/Aug/2021 10:53:58] "GET /34 HTTP/1.1" 404 -
+172.17.0.1 - - [30/Aug/2021 10:54:09] "GET / HTTP/1.1" 200 -

@@ -13,7 +13,7 @@ connection_count = 0
 # set logger to handle STDOUT and STDERR 
 logger = logging.getLogger('techtrends_logs')
 
-log_format = logging.Formatter('%(asctime)s  - %(levelname)s - %(message)s')
+log_format = logging.Formatter('%(levelname)s:%(asctime)s - %(message)s')
 
 logger.setLevel(logging.DEBUG)
 print(logging.getLevelName(logger.level))
@@ -131,6 +131,6 @@ def metrics():
 # start the application on port 3111
 if __name__ == "__main__":
     ## stream logs to a file
-    logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
+    #logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
 
     app.run(host='0.0.0.0', port='3111')
