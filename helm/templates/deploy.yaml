@@ -5,9 +5,9 @@ metadata:
   labels:
     app: techtrends
   name: techtrends
-  namespace: sandbox
+  namespace: {{ .Values.namespace.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: techtrends
@@ -22,7 +22,7 @@ spec:
         app: techtrends
     spec:
       containers:
-        - image: kevintuei/techtrends:latest
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: IfNotPresent
           name: techtrends
           ports:
