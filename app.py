@@ -4,11 +4,30 @@ from flask import Flask, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 from datetime import datetime
 import logging
+from os import system
+import sys
 
 # Count all database connections
 connection_count = 0
 
+# set logger to handle STDOUT and STDERR 
+logger = logging.getLogger('techtrends_logs')
 
+log_format = logging.Formatter('%(asctime)s  - %(levelname)s - %(message)s')
+
+logger.setLevel(logging.DEBUG)
+print(logging.getLevelName(logger.level))
+if logging.getLevelName(logger.level) == 'INFO' or 'DEBUG':
+    stdout_handler = logging.StreamHandler(sys.stdout)
+    stdout_handler.setFormatter(log_format)
+    stdout_handler.setLevel(logging.getLevelName(logger.level))
+    logger.addHandler(stdout_handler)
+else:
+    stderr_handler = logging.StreamHandler(sys.stderr)
+    stderr_handler.setFormatter(log_format)
+    stderr_handler.setLevel(logging.getLevelName(logger.level))
+    logger.addHandler(stderr_handler)
+    
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
@@ -48,18 +67,18 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        log_message(
+        logger.error(
             'Article with id "{id}" does not exist!'.format(id=post_id))
         return render_template('404.html'), 404
     else:
-        log_message('Article "{title}" retrieved!'.format(title=post['title']))
+        logger.info('Article "{title}" retrieved!'.format(title=post['title']))
         return render_template('post.html', post=post)
 
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    log_message('About page rendered!')
+    logger.info('About page rendered!')
     return render_template('about.html')
 
 
@@ -79,7 +98,7 @@ def create():
                 (title, content))
             connection.commit()
             connection.close()
-            log_message('Article "{title}" created!'.format(title=title))
+            logger.info('Article "{title}" created!'.format(title=title))
             return redirect(url_for('index'))
     return render_template('create.html')
 
@@ -108,15 +127,10 @@ def metrics():
     return data
 
 
-#Function that logs messages
-def log_message(msg):
-    app.logger.info('{time} | {message}'.format(
-        time=datetime.now().strftime("%m/%d/%Y, %H:%M:%S"), message=msg))
-
 
 # start the application on port 3111
 if __name__ == "__main__":
     ## stream logs to a file
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
 
     app.run(host='0.0.0.0', port='3111')
